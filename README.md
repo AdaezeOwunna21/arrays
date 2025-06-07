@@ -38,10 +38,5 @@ To download:
 ---
 
 
-
-- `titanic.csv` – the dataset
-- `analyze_titanic.py` – starter code for your analysis
-- `arrays_lesson.md` – a detailed lesson about arrays and examples
-
 ---
 
