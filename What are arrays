@@ -1,0 +1,27 @@
+ Lesson: What Are Arrays and When Do We Use Them?
+
+ What is an Array?
+
+An array is a collection of elements stored in a specific order. Think of it like a row of boxes, each holding a value.
+
+In most programming languages:
+- Arrays (or lists in Python) are used to store multiple values in one variable
+- All elements are accessible by index (starting from 0)
+- They're useful when you need to group related data and perform operations like sorting, filtering, or looping
+
+When Should You Use Arrays?
+
+Use arrays when:
+- You have many values of the same type (like ages, names, prices)
+- You want to loop through data
+- You need to search, sort, or modify a group of values
+
+ Titanic Dataset Examples Using Arrays
+
+Assume we load `titanic.csv` into a list of dictionaries:
+```python
+import csv
+
+with open("titanic.csv", newline='', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    data = list(reader)
