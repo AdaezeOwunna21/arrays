@@ -1,0 +1,76 @@
+import csv
+
+# Load uploaded CSV
+with open("titanic.csv", newline='', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    data = list(reader)
+
+# 1. Total number of passengers
+print(f"Total passengers: {len(data)}")
+
+# 2. Number of survivors
+survivors = [row for row in data if row['Survived'] == '1']
+print(f"Number of survivors: {len(survivors)}")
+
+# 3. List of all female passengers
+female_names = [row['Name'] for row in data if row['Sex'] == 'female']
+print(f"Number of female passengers: {len(female_names)}")
+print(f"First 3 female passengers: {female_names[:3]}")
+
+# 4. Oldest passenger
+ages = [(row['Name'], float(row['Age'])) for row in data if row['Age']]
+oldest = max(ages, key=lambda x: x[1])
+print(f"Oldest passenger: {oldest[0]} ({oldest[1]} years old)")
+
+# 5. Average fare
+fares = [float(row['Fare']) for row in data if row['Fare']]
+avg_fare = sum(fares) / len(fares)
+print(f"Average fare: ${avg_fare:.2f}")
+
+
+
+# Arrays Practice: Full CRUD with a Passenger List
+
+# Step 1: Create an array (list)
+passenger_names = ["Alice", "Bob", "Charlie", "Diana", "Ethan"]
+print("Initial Passenger List:", passenger_names)
+
+# Step 2: Read (Access items)
+print("\nAccessing by index:")
+print("First passenger:", passenger_names[0])
+print("Third passenger:", passenger_names[2])
+
+# Step 3: Create (Add new names)
+print("\nAdding new passengers...")
+passenger_names.append("Fatima")
+passenger_names.append("George")
+print("Updated list:", passenger_names)
+
+# Step 4: Read All (Loop through the list)
+print("\nPassenger Manifest:")
+for name in passenger_names:
+    print("- " + name)
+
+# Step 5: Update (Change a name)
+print("\nUpdating 'Charlie' to 'Carlos'...")
+index = passenger_names.index("Charlie")
+passenger_names[index] = "Carlos"
+print("List after update:", passenger_names)
+
+# Step 6: Delete (Remove by name or index)
+print("\nRemoving 'Bob' and the last passenger...")
+passenger_names.remove("Bob")       # remove by value
+passenger_names.pop()               # remove last item
+print("List after deletion:", passenger_names)
+
+# Step 7: Count and Filter
+print("\nPassenger Stats:")
+print("Total passengers:", len(passenger_names))
+
+# Filter: names longer than 5 characters
+long_names = [name for name in passenger_names if len(name) > 5]
+print("Names longer than 5 characters:", long_names)
+
+# Step 8: Sort
+passenger_names.sort()
+print("\nSorted Passenger List:", passenger_names)
